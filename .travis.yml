@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+bofore_install:
+  - docker image build -t vashian/docker-react -f Dockerfile.dev .
+
+script:
+  - docker container run vashian/docker-react npm run test -- --coverage
